@@ -1,8 +1,10 @@
 #pragma once
 #include "esphome.h"
 
-class GeyserTechRS485 : public PollingComponent {
+class GeyserTechRS485 : public PollingComponent, public UARTDevice {
  public:
+  GeyserTechRS485(UARTComponent *parent) : PollingComponent(1000), UARTDevice(parent) {}
+
   Sensor *geyser_temp_sensor = nullptr;
   Sensor *pv_voltage_sensor = nullptr;
   Sensor *pv_current_sensor = nullptr;
@@ -10,8 +12,6 @@ class GeyserTechRS485 : public PollingComponent {
   Sensor *pv_power_sensor = nullptr;
   Sensor *solar_power_kwh_sensor = nullptr;
   TextSensor *geyser_status_sensor = nullptr;
-
-  GeyserTechRS485() : PollingComponent(1000) {}
 
   void setup() override;
   void update() override;
