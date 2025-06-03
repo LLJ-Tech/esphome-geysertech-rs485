@@ -5,8 +5,8 @@ void GeyserTechRS485::setup() {
 }
 
 void GeyserTechRS485::update() {
-  while (id(uart_rs485).available()) {
-    uint8_t byte = id(uart_rs485).read();
+  while (available()) {
+    uint8_t byte = read();
     static uint8_t buffer[128];
     static int buffer_index = 0;
     static enum State { WAIT_FOR_0F, WAIT_FOR_F0, WAIT_FOR_31, COLLECT_PAYLOAD } state = WAIT_FOR_0F;
@@ -101,4 +101,3 @@ void GeyserTechRS485::update() {
     }
   }
 }
-
