@@ -1,5 +1,4 @@
-# new update
-import esphome.codegen as cg
+mport esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import sensor, text_sensor, uart
 from esphome.const import CONF_ID, UNIT_CELSIUS, UNIT_VOLT, UNIT_AMPERE, UNIT_WATT, UNIT_KILO_WATT_HOURS, ICON_THERMOMETER, ICON_POWER
