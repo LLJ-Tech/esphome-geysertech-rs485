@@ -1,8 +1,7 @@
-# Start with Tags 
 import esphome.codegen as cg
 import esphome.config_validation as cv
 from esphome.components import sensor, text_sensor, uart
-from esphome.const import CONF_ID, UNIT_CELSIUS, UNIT_VOLT, UNIT_AMPERE, UNIT_WATT, UNIT_KILO_WATT_HOURS, ICON_THERMOMETER, ICON_POWER
+from esphome.const import CONF_ID, UNIT_CELSIUS, UNIT_VOLT, UNIT_AMPERE, UNIT_WATT, UNIT_KILOWATT_HOUR, ICON_THERMOMETER, ICON_POWER
 
 DEPENDENCIES = ['uart']
 geysertech_rs485_ns = cg.esphome_ns.namespace('geysertech_rs485')
@@ -34,7 +33,7 @@ CONFIG_SCHEMA = cv.Schema({
         accuracy_decimals=1
     ),
     cv.Optional('solar_power_kwh'): sensor.sensor_schema(
-        unit_of_measurement=UNIT_KILO_WATT_HOURS,
+        unit_of_measurement=UNIT_KILOWATT_HOUR,
         accuracy_decimals=3
     ),
     cv.Optional('geyser_status'): text_sensor.text_sensor_schema(),
